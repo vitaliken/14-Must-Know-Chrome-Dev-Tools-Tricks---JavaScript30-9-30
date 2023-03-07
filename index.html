@@ -21,54 +21,69 @@
         }
 
         //Regular
-
+        console.log('Hello')
 
         //Interpolated
-
+        console.log('Hello i am %s sonn', 'vitaliken')
 
         //Styled
-
-        // console.log('%c I am a big red & blue text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue;')
-        //commented out bcos its annoying
+        console.log('%c I am a big red & blue text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue;')
 
         //Warning!
-
+        console.warn('OH NOOO')
 
         //Error
-
+        console.error('Omg error')
 
         //Info
-
+        console.info('Очень полезная информация')
 
         //Testing
-        // console.assert(1 === 2 ,'That is wrong'); //left side is error message, no message  if true
+        console.assert(1 === 2, 'That is wrong'); //будет ошибка только при false
 
-
+        const p = document.querySelector('p');
+        console.assert(p.classList.contains('ouch'), 'p doesnt contain that');//пример на проверку элемента, если его нет - будет ошибка
 
         // clearing
-
-
+        // console.clear();
 
         // // viewing DOM elements
-        // console.log(p); //shows p that was selected earlier
-        // console.dir(p); 
+        console.log(p); //shows p that was selected earlier
+        console.dir(p);
+        // console.clear();
 
         //Grouping together
+        dogs.forEach(dog => {
+            console.groupCollapsed(`${dog.name}`);
+            console.log(`This is ${dog.name}`);
+            console.log(`${dog.name} is ${dog.age} years old`);
+            console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+            console.groupEnd(`${dog.name}`);
 
-            //groupCollapsed and groupEnd // .groupCollapsed instead of .group to keep closed
-
+        });
 
         //Counting
+        console.count('Bill');
+        console.count('John');
+        console.count('John');
+        console.count('Bill');
+        console.count('John');
+        console.count('Bill');
+        console.count('Bill');
+        console.count('Bill');
+        console.count('Bill');
 
+        console.time('fetching data');
 
-        //timing
-
-        //time and timeEnd
-
+        fetch('https://api.github.com/users/wesbos')
+            .then(data => data.json())
+            .then(data => {
+                console.timeEnd('fetching data');
+                console.log(data);
+            })//time and timeEnd
 
         //table
-
-
+        console.table(dogs);
 
     </script>
 
